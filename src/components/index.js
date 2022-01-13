@@ -1,0 +1,8 @@
+export {default as InfoSection} from './InfoSection'
+export {default as Feature} from './Feature'
+export {default as Footer} from './Footer'
+export {default as Movies} from './Movies'
+export {default as Banner} from './Banner'
+export {default as Accordion} from './Accordion'
+export {default as OptForm} from './Opt-form'
+export {default as Form} from './Form'

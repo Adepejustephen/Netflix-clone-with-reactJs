@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import GlobalStyle from "./GlobalStyles";
+import { GlobalBody } from "./GlobalStyles";
+import { Browse, Home, SignIn, SignUp } from "./pages";
+
+import * as ROUTES from './constants/routes'
+import { UserAuthContextProvider } from './contexts/firebaseContext';
+import ProtectedRoute from './constants/ProtectedRoute';
+// import {ProtectedRoute} from './constants/ProtectedRoute' ;
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UserAuthContextProvider>
+      <Router>
+        <GlobalStyle />
+        <GlobalBody />
+        <Routes>
+          <Route exact path={ROUTES.BROWSE} element={<ProtectedRoute> <Browse /> </ProtectedRoute>} />
+          <Route  path={ROUTES.HOME} element={<Home />} />
+          <Route exact path={ROUTES.SIGN_IN} element={<SignIn />} />
+          <Route exact path={ROUTES.SIGN_UP} element={<SignUp />} />
+          
+        </Routes>
+        {/* <Browse/> */}
+        {/* <Home /> */}
+      </Router>
+    </UserAuthContextProvider>
   );
 }
 
