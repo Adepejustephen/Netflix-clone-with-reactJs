@@ -1,15 +1,15 @@
 import React, {useState} from 'react'
 import { useNavigate} from 'react-router-dom'
-import {   useUserAuth } from '../../contexts/firebaseContext'
+
 import { Form } from '../../components';
-import HeaderContainer from '../../Containers/HeaderContainer';
-// import { firebaseRef } from '../../lib/firebase.prod';
+import { LoginSignUpFooter, LoginSignUpHeader } from '../../Containers'
 
 import * as ROUTES from '../../constants/routes'
+import { useUserAuth } from '../../contexts/firebaseContext'
 
 const SignUp = () => {
 
-    const history = useNavigate()
+    const navigate = useNavigate()
     // const firebase = useContext(firebaseContext)
 
     const [email, setEmail] = useState('');
@@ -31,7 +31,7 @@ const SignUp = () => {
 
         try {
             await signUp(email, password);
-            history(ROUTES.BROWSE)
+            navigate(ROUTES.BROWSE)
 
         } catch (err) {
             console.log(err.message)
@@ -45,7 +45,7 @@ const SignUp = () => {
 
     return (
         <>
-            <HeaderContainer>
+            <LoginSignUpHeader>
                 <Form>
                     <Form.Title>Sign Up</Form.Title>
                     {error && <Form.Error> {error} </Form.Error>}
@@ -75,7 +75,9 @@ const SignUp = () => {
                     <Form.Text>Already a user? <Form.Link to='/SignIn'>Sign in now</Form.Link></Form.Text>
                     <Form.SmallText>This page is protected by Google reCAPTCHA to ensure you're not a bot. Learn more</Form.SmallText>
                 </Form>
-            </HeaderContainer>
+
+                < LoginSignUpFooter/>
+            </LoginSignUpHeader>
         </>
     )
 };

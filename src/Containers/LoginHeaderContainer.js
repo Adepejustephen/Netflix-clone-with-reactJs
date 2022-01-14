@@ -4,16 +4,16 @@ import * as ROUTES from '../constants/routes'
 
 const logoLink = 'https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.svg' 
 
-const HeaderContainer = ({children}) => {
+const LoginSignUpHeaderContainer = ({children}) => {
     return (
-        <Header>
+        <Header noBackground>
             <Header.Frame>
-                <Header.Logo to={ROUTES.HOME} src={logoLink} alt="Netflix logo"/>
-                <Header.ButtonLink to={ROUTES.SIGN_IN} >Sign in</Header.ButtonLink>
+                <Header.Logo to={ROUTES.HOME} src={logoLink} alt="Netflix logo" />
+                <Header.ButtonLink to={ROUTES.SIGN_IN} doNotDisplay >Sign in</Header.ButtonLink>
             </Header.Frame>
             {children}
         </Header>
     )
 }
 
-export default HeaderContainer
+export default LoginSignUpHeaderContainer

@@ -1,12 +1,12 @@
 import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
-// import { Link } from 'react-router-dom'
+
 import {Form } from '../../components'
-import HeaderContainer from '../../Containers/HeaderContainer'
-import SignInFooterContainer from '../../Containers/SignInFooterContainer'
+import { LoginSignUpFooter, LoginSignUpHeader} from '../../Containers'
 
 import * as ROUTES from '../../constants/routes'
 import { useUserAuth } from '../../contexts/firebaseContext'
+
 
 const SignIn = () => {
 
@@ -41,7 +41,7 @@ const SignIn = () => {
 
     return (
         <>
-        <HeaderContainer>
+            < LoginSignUpHeader>
             <Form>
                 <Form.Title>Sign In</Form.Title>
                 {error && <Form.Error>{error} </Form.Error>}
@@ -65,8 +65,8 @@ const SignIn = () => {
                     <Form.Text>New to Netflix? < Form.Link to='/SignUp'>Sign up now</Form.Link></Form.Text>
                     <Form.SmallText>This page is protected by Google reCAPTCHA to ensure you're not a bot. Learn more</Form.SmallText>
             </Form>
-            <SignInFooterContainer/>
-        </HeaderContainer>
+                <LoginSignUpFooter/>
+            </ LoginSignUpHeader>
         {/* <Footer/> */}
         </>
     )

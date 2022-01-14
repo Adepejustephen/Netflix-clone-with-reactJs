@@ -8,11 +8,15 @@ export const Background = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: center;
-background: url(${backgroundLink}) bottom right / cover no-repeat;
+background: ${({noBackground})=> noBackground ? 'none' : `url(${backgroundLink}) bottom right / cover no-repeat`};
 height: 100%;
 position: relative;
 z-index: 5;
 /* background-color: #000; */
+
+@media screen and ( min-width: 600px){
+    background: url(${backgroundLink}) bottom right / cover no-repeat;
+}
 
 
 &::before {
@@ -72,7 +76,7 @@ width: 108px;
 
 export const ButtonLink = styled(Link)`
 
-display: block;
+display: ${({doNotDisplay})=> doNotDisplay ? 'none' : 'block'};
 background-color: #e50914;
 height: fit-content;
 color: #fff;

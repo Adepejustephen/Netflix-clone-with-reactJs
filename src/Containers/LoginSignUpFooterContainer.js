@@ -3,8 +3,8 @@ import { Footer } from '../components'
 
 const SignInFooterContainer = () => {
     return (
-        <Footer pad={true}>
-            <Footer.Container>
+        <Footer>
+            <Footer.Container pad>
                 <Footer.Title>Questions? Contact us.</Footer.Title>
                 <Footer.Row>
                     <Footer.Column>

@@ -3,9 +3,9 @@ import { Link as RouterLink } from 'react-router-dom'
 import {Background, Container, Logo, ButtonLink} from './styles/Header'
 
 
-const Header = ({ bg = true, children, ...restprops}) => {
+const Header = ({ children, ...restprops}) => {
     return (
-        bg? <Background {...restprops}> {children} </Background> : {children}
+        <Background {...restprops}> {children} </Background>
     )
 }
 

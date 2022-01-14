@@ -1,13 +1,13 @@
 import React from 'react'
 
 import { Accordion, InfoSection, Feature, OptForm } from '../../components'
-import HeaderContainer from '../../Containers/HeaderContainer'
-import HomeFooterContainer from '../../Containers/HomeFooterContainer'
+import {HomeHeader, HomeFooter} from '../../Containers'
+
 
 function Home() {
     return (
         <>
-            <HeaderContainer>
+            <HomeHeader>
                 <Feature>
                     <Feature.Title>Unlimited movies, TV shows, and more.</Feature.Title>
                     <Feature.SubTitle>Watch anywhere. Cancel anytime.</Feature.SubTitle>
@@ -19,11 +19,11 @@ function Home() {
                         </OptForm>
                     </OptForm>
                 </Feature> 
-            </HeaderContainer>
+            </HomeHeader>
             <main>
                 <InfoSection />
                 <Accordion />
-                <HomeFooterContainer />
+                <HomeFooter />
             </main>
         </>
     )
