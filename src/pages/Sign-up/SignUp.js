@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import { useNavigate} from 'react-router-dom'
+import React, { useState , useContext} from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import { Form } from '../../components';
 import { LoginSignUpFooter, LoginSignUpHeader } from '../../Containers'
@@ -9,39 +9,69 @@ import { useUserAuth } from '../../contexts/firebaseContext'
 
 const SignUp = () => {
 
+    const profileImage = 'https://occ-0-1168-300.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABdweZW5Ra69F4jKL39o-nRkek0fp03WngXS4tiegd4gIiZ4I2PB8LUc6LHsWhoAlvvBKtkw754aLQEjB7cWPyZ5fSw.png?r=bf3'
     const navigate = useNavigate()
-    // const firebase = useContext(firebaseContext)
+    const { signUp } = useUserAuth()
+   
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [userName, setUserName] = useState('');
     const [error, setError] = useState('');
-    const  {signUp} = useUserAuth();
-    
-    
+   
+
+
 
 
     // Check if form input elements are valid
 
-    const isInvalid = password === '' || email === '' ||userName === '';
+    const isInvalid = password === '' || email === '' || userName === '';
 
-    const handleSubmit =  async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         setError('')
 
-        try {
-            await signUp(email, password);
-            navigate(ROUTES.BROWSE)
+        // firebase
+        //     .auth()
+        //     .createUserWithEmailAndPassword(email, password)
+        //     .then((result) => {
+        //         result.user
+        //             .updateProfile({
+        //                 displayName: userName,
+        //                 photoURL: profileImage,
+        //             })
+        //             .then(() => {
+        //                 navigate(ROUTES.BROWSE);
+        //             });
+        //     })
+        //     .catch((error) => {
+        //         setEmail("");
+        //         setUserName("");
+        //         setPassword("");
+        //         setError(error.message);
+        //     });
+        signUp(email, password)
+            .then((result) =>
+                result.user
+                    .updateProfile({
+                        displayName: userName,
+                        photoURL: profileImage,
 
-        } catch (err) {
-            console.log(err.message)
+                    })
+                    .then(() => {
+                        navigate(ROUTES.BROWSE)
+                    })
+            )
+            .catch((err) => {
+                setEmail('');
+                setPassword('');
+                setUserName('');
+                setError(err.message);
+            })
 
-            setError(err.message);
-        }
-        
     }
 
-    
+
 
     return (
         <>
@@ -54,12 +84,12 @@ const SignUp = () => {
                         <Form.Input
                             placeholder="Name"
                             value={userName}
-                            onChange={({ target }) => setUserName(target.value)} 
+                            onChange={({ target }) => setUserName(target.value)}
                         />
                         <Form.Input
                             placeholder="Email address"
                             value={email}
-                            onChange={({ target }) => setEmail(target.value)} 
+                            onChange={({ target }) => setEmail(target.value)}
                         />
 
                         <Form.Input
@@ -76,7 +106,7 @@ const SignUp = () => {
                     <Form.SmallText>This page is protected by Google reCAPTCHA to ensure you're not a bot. Learn more</Form.SmallText>
                 </Form>
 
-                < LoginSignUpFooter/>
+                < LoginSignUpFooter />
             </LoginSignUpHeader>
         </>
     )
