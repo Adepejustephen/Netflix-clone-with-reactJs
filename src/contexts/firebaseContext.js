@@ -19,7 +19,6 @@ export  function UserAuthContextProvider({children}) {
     }
 
     function logOut(){
-        
         return signOut(auth)
     }
     useEffect(() => {

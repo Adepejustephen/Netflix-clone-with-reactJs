@@ -1,4 +1,4 @@
-import React, { useState , useContext} from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { Form } from '../../components';
@@ -31,25 +31,6 @@ const SignUp = () => {
         e.preventDefault();
         setError('')
 
-        // firebase
-        //     .auth()
-        //     .createUserWithEmailAndPassword(email, password)
-        //     .then((result) => {
-        //         result.user
-        //             .updateProfile({
-        //                 displayName: userName,
-        //                 photoURL: profileImage,
-        //             })
-        //             .then(() => {
-        //                 navigate(ROUTES.BROWSE);
-        //             });
-        //     })
-        //     .catch((error) => {
-        //         setEmail("");
-        //         setUserName("");
-        //         setPassword("");
-        //         setError(error.message);
-        //     });
         signUp(email, password)
             .then((result) =>
                 result.user
