@@ -5,25 +5,8 @@ import * as ROUTES from './routes'
 
 
 
-
-export const RedirectUser = ({  children }) => {
-    let  { user}  = useUserAuth();
-
-
-    return user ? <Navigate to={ROUTES.BROWSE} /> : children
-   
-
-   
-}
-
-
-
-
-export const ProtectedRoute = ({ children }) => {
+const ProtectedRoute = ({ children }) => {
     let {user}  = useUserAuth();
-    
-
-
     
     
     if (!user) {
@@ -33,6 +16,8 @@ export const ProtectedRoute = ({ children }) => {
 
     return children;
 }
+
+export default ProtectedRoute
 
 
 

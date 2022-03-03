@@ -12,11 +12,11 @@ background: ${({ noBackground }) => noBackground ? 'none' : `url(${backgroundLin
 height: 100%;
 position: relative;
 z-index: 5;
+border-bottom: ${({ home }) => home ? '8px solid #333' : 'none'};
 /* background-color: #000; */
 
 @media screen and ( min-width: 600px){
     background: url(${backgroundLink}) bottom right / cover no-repeat;
-    background: ${({ noBackground }) => noBackground ? 'none' : `url(${backgroundLink}) bottom right / cover no-repeat`};
 }
 
 
@@ -77,7 +77,7 @@ width: 108px;
 
 export const ButtonLink = styled(Link)`
 
-display: ${({ doNotDisplay }) => doNotDisplay ? 'none' : 'block'};
+display: ${({ nodisplay }) => nodisplay ? 'none' : 'block'};
 background-color: #e50914;
 height: fit-content;
 color: #fff;

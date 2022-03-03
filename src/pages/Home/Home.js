@@ -11,13 +11,12 @@ function Home() {
                 <Feature>
                     <Feature.Title>Unlimited movies, TV shows, and more.</Feature.Title>
                     <Feature.SubTitle>Watch anywhere. Cancel anytime.</Feature.SubTitle>
-                    <OptForm>
+                    
                         <OptForm>
                             <OptForm.Text>Ready to watch? Enter your email to create or restart your membership.</OptForm.Text>
                             <OptForm.Input placholder='Email address' type='email' />
                             <OptForm.Button>Get Started</OptForm.Button>
                         </OptForm>
-                    </OptForm>
                 </Feature> 
             </HomeHeader>
             <main>

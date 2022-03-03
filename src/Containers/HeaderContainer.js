@@ -6,7 +6,7 @@ const logoLink = 'https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bc
 
 const HeaderContainer = ({children}) => {
     return (
-        <Header>
+        <Header home>
             <Header.Frame>
                 <Header.Logo to={ROUTES.HOME} src={logoLink} alt="Netflix logo"/>
                 <Header.ButtonLink to={ROUTES.SIGN_IN} >Sign in</Header.ButtonLink>

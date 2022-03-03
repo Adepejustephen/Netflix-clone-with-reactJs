@@ -25,18 +25,18 @@ const SignIn = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        signIn(email, password)
+        try {
+            await signIn(email, password)
 
-            .then(() => {
-                navigate(ROUTES.BROWSE)
-            })
 
-            .catch((err) => {
-                setEmail('');
-                setPassword('');
+            navigate(ROUTES.BROWSE)
+        }
+        catch (err) {
+            setEmail('');
+            setPassword('');
 
-                setError(err.message);
-            })
+            setError(err.message);
+        }
 
     }
 

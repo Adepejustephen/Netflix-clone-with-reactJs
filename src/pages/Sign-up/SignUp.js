@@ -8,17 +8,16 @@ import * as ROUTES from '../../constants/routes'
 import { useUserAuth } from '../../contexts/firebaseContext'
 
 const SignUp = () => {
-
-    const profileImage = 'https://occ-0-1168-300.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABdweZW5Ra69F4jKL39o-nRkek0fp03WngXS4tiegd4gIiZ4I2PB8LUc6LHsWhoAlvvBKtkw754aLQEjB7cWPyZ5fSw.png?r=bf3'
+    
     const navigate = useNavigate()
     const { signUp } = useUserAuth()
-   
+
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [userName, setUserName] = useState('');
     const [error, setError] = useState('');
-   
+
 
 
 
@@ -27,28 +26,21 @@ const SignUp = () => {
 
     const isInvalid = password === '' || email === '' || userName === '';
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setError('')
 
-        signUp(email, password)
-            .then((result) =>
-                result.user
-                    .updateProfile({
-                        displayName: userName,
-                        photoURL: profileImage,
+        try {
+            await signUp(email, password)
 
-                    })
-                    .then(() => {
-                        navigate(ROUTES.BROWSE)
-                    })
-            )
-            .catch((err) => {
-                setEmail('');
-                setPassword('');
-                setUserName('');
-                setError(err.message);
-            })
+            navigate(ROUTES.BROWSE)
+        }
+        catch (err) {
+            setEmail('');
+            setPassword('');
+            setUserName('');
+            setError(err.message);
+        }
 
     }
 
