@@ -16,7 +16,7 @@ function Browse() {
     useEffect(() => {
         setTimeout(() => {
             setLoading(false)
-        }, 3000);
+        }, 500);
 
 
     }, []);
@@ -38,7 +38,6 @@ function Browse() {
             <Movies title='Action Movies' fetchUrl={requests.fetchActionMovies} />
             <Movies title='Comedy Movies' fetchUrl={requests.fetchComedyMovies} />
             <Movies title='Romance Movies' fetchUrl={requests.fetchRomanceMovies} />
-            <Movies title='Horror Movies' fetchUrl={requests.fetchHorrorMovies} />
             <Movies title='Documentries' fetchUrl={requests.fetchDocumentary} />
         </>
     )

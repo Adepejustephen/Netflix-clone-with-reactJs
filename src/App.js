@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {  Routes, Route } from "react-router-dom";
 
 import GlobalStyle from "./GlobalStyles";
 import { GlobalBody } from "./GlobalStyles";
@@ -11,13 +11,14 @@ import { UserAuthContextProvider} from './contexts/firebaseContext' ;
 import ProtectedRoute from './constants/ProtectedRoute' ;
 
 
+
 function App() {
   // const { user } = useAuthListener();
 
   return (
     <>
       <UserAuthContextProvider>
-      <Router>
+      
         <GlobalStyle />
         <GlobalBody />
         <Routes>
@@ -27,7 +28,6 @@ function App() {
           <Route path={ROUTES.BROWSE} element={<ProtectedRoute> <Browse /> </ProtectedRoute>} />
 
         </Routes>
-      </Router>
       </UserAuthContextProvider>
     </>
   );

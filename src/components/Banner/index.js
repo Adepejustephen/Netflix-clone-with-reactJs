@@ -65,7 +65,7 @@ function Banner() {
     const handleLogOut = async () => {
 
         try {
-            await logOut;
+            await logOut();
         } catch (err) {
          console.log(err.message)   
         }

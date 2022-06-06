@@ -73,3 +73,4 @@ transition: transform .4s;
 export const MovieFeature = styled.p`
 
 `
+

@@ -4,14 +4,16 @@ import { Link } from 'react-router-dom'
 // import {BsFillPlayFill} from 'react-icons/bs'
 
 export const BannerHeader = styled.div`
-width: 100%;
-height: 448px;
-
-@media screen and (max-width: 800px) {
-
-  background-image: none!important;
+  width: 100%;
+  max-height: 600px;
   height: 100%;
- }
+  background-size: cover;
+
+  @media screen and (max-width: 800px) {
+    background-image: none !important;
+    height: 100%;
+    max-height: 100%;
+  }
 
   /* background-color: #fff; */
   /* object-fit: contain; */
@@ -20,11 +22,7 @@ height: 448px;
   flex-direction: column;
   justify-content: center;
   position: relative; */
-
-   
-
-
-`
+`;
 
 
 
@@ -96,7 +94,7 @@ font-size: 1.1rem;
 display: flex;
 /* justify-content: space-evenly; */
 align-items: center;
-
+margin-top: 20px;
 &:hover {
     opacity: .8;
     transition: opacity .3s;
