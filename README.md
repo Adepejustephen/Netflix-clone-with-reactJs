@@ -1,3 +1,3 @@
-# Welcome to my Netflix clone with ReactJs
+# Welcome to my Netflix clone Project
 
-This project was styled with styled components  [preview](https://netflixclone-ifeade.netlify.app/).
+This project was built with React js, Firebase Authentication, TMDB Api and  styled-components  [preview](https://netflixclone-ifeade.netlify.app/).
